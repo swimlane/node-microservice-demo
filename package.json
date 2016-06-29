@@ -1,0 +1,42 @@
+{
+  "name": "nodejs-seed",
+  "version": "1.0.0",
+  "description": "Nodejs + TypeScript + Swagger + Docker + Express seed project",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install -g swagger tslint@next typescript@next ts-node nodemon",
+    "start": "nodemon ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swimlane/nodejs-seed.git"
+  },
+  "keywords": [
+    "typescript",
+    "swagger",
+    "docker",
+    "express"
+  ],
+  "engines": {
+    "node": "~6.2"
+  },
+  "author": "Swimlane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swimlane/nodejs-seed/issues"
+  },
+  "homepage": "https://github.com/swimlane/nodejs-seed#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "supertest": "^1.2.0",
+    "ts-node": "^0.9.3",
+    "tslint": "^3.12.0-dev.2",
+    "typescript": "^2.0.0-dev.20160629"
+  }
+}
