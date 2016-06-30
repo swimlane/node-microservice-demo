@@ -1,4 +1,5 @@
 import { ExpressConfig } from './Express';
+import * as config from 'config';
 
 export class Application {
 
@@ -12,9 +13,9 @@ export class Application {
       res.send('Hello World!');
     });
 
-    const port = process.env.EXPRESS_PORT;
+    const port = config.get('express.port');
     this.server = express.server.listen(port, function () {
-      console.log('Example app listening on port 3000!');
+      console.log(`Express started on http://localhost:${port}`);
     });
   }
 

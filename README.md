@@ -23,14 +23,14 @@ Example project for:
 `nodejs-seed` uses [ts-node](https://github.com/TypeStrong/ts-node) for on-the-fly compilation. 
 
 If you are installing a new project, you will likely need to install the typings for that
-project like so `npm install --save @types/body-parser`.
+project like so `npm install @types/body-parser --save-dev`.
 
 When you `npm install` the project, [tslint](http://palantir.github.io/tslint/) is also installed
 at the global level. It is advised you setup TSLint in your editor before commiting code. 
 
 ### Environment
-Database configuration, port setups, etc for NodeJS are maintained via environment variables 
-in your `.env` file using [dotenv](https://github.com/motdotla/dotenv) project.
+Database configuration, port setups, etc for NodeJS are maintained yaml config files in `~/config`
+via [node-config](https://github.com/lorenwest/node-config).
 
 ### Server
 When changes are made to files, your server will automatically reload via [nodemon](http://nodemon.io/). Nodemon is
