@@ -3,12 +3,12 @@ import * as bodyParser from 'body-parser';
 
 export class ExpressConfig {
 
-	app: express.Express;
+	server: express.Express;
 
 	constructor() {
-		this.app = express();
-		this.app.use(bodyParser.json());
-		this.app.use(bodyParser.urlencoded({ extended: false }));
+		this.server = express();
+		this.server.use(bodyParser.json());
+		this.server.use(bodyParser.urlencoded({ extended: false }));
 	}
-	
+
 }

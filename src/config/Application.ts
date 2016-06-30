@@ -2,18 +2,18 @@ import { ExpressConfig } from './Express';
 
 export class Application {
 
-  app: any;
   server: any;
 
   constructor()  {
-    this.app = new ExpressConfig();
+    let express = new ExpressConfig();
 
     // POC
-    this.app.get('/', function (req, res) {
+    express.server.get('/', function (req, res) {
       res.send('Hello World!');
     });
 
-    this.app.listen(3000, function () {
+    const port = process.env.EXPRESS_PORT;
+    this.server = express.server.listen(port, function () {
       console.log('Example app listening on port 3000!');
     });
   }

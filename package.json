@@ -6,6 +6,7 @@
   "scripts": {
     "preinstall": "npm install -g swagger tslint@next typescript@next ts-node nodemon",
     "start": "nodemon ./index.js",
+    "debug": "node-debug ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +29,11 @@
   },
   "homepage": "https://github.com/swimlane/nodejs-seed#readme",
   "dependencies": {
+    "@types/body-parser": "0.0.23-alpha",
+    "@types/express": "^4.0.23-alpha",
+    "@types/node": "^4.0.22-alpha",
     "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "winston": "^2.2.0"
   },
