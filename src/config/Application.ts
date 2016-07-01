@@ -1,4 +1,5 @@
 import { ExpressConfig } from './Express';
+import '../common/logging';
 import * as config from 'config';
 
 export class Application {
@@ -7,12 +8,6 @@ export class Application {
 
   constructor()  {
     let express = new ExpressConfig();
-
-    // POC
-    express.app.get('/', function (req, res) {
-      res.send('Hello World!');
-    });
-
     const port = config.get('express.port');
     this.server = express.app.listen(port, () => {
       console.log(`Express started: http://localhost:${port}`);

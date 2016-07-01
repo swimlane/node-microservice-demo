@@ -24,7 +24,7 @@ Example project for:
 ## Developing
 
 ### Commands
-We use [npm tasks](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) as our build tool.
+We use [npm scripts](https://docs.npmjs.com/misc/scripts) as our build tool.
 Below are the commands for the task runner.
 
 - `npm start`: Builds and starts the project with node-mon

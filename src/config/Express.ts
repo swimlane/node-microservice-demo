@@ -21,22 +21,22 @@ export class ExpressConfig {
 		this.app.use(bodyParser.json());
 		this.app.use(bodyParser.urlencoded({ extended: false }));
 
-    //this.setupSwagger();
+    this.setupSwagger();
     this.setupControllers();
 	}
 
   setupSwagger() {
-    const spath = path.resolve(__dirname, '../../src/modules/admin/swagger.yml');
+    const spath = path.resolve(__dirname, '../../src/modules/pet-store/swagger.yml');
     const file = fs.readFileSync(spath, 'utf8');
     const spec = yaml.safeLoad(file);
     
-    this.app.use(openApiDefaults(spec));
-    this.app.use(openApiCoercion(spec));
-    this.app.use(openApiValidation(spec));
+    //this.app.use(openApiDefaults(spec));
+    //this.app.use(openApiCoercion(spec));
+    //this.app.use(openApiValidation(spec));
   }
 
   setupControllers() {
-    const spath = path.resolve(__dirname, '../modules/admin/controllers');
+    const spath = path.resolve(__dirname, '../modules/pet-store/controllers');
 
     useExpressServer(this.app, {
       routePrefix: '/api',
