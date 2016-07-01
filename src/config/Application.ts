@@ -9,13 +9,13 @@ export class Application {
     let express = new ExpressConfig();
 
     // POC
-    express.server.get('/', function (req, res) {
+    express.app.get('/', function (req, res) {
       res.send('Hello World!');
     });
 
     const port = config.get('express.port');
-    this.server = express.server.listen(port, function () {
-      console.log(`Express started on http://localhost:${port}`);
+    this.server = express.app.listen(port, () => {
+      console.log(`Express started: http://localhost:${port}`);
     });
   }
 

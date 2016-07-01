@@ -20,10 +20,15 @@
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "dist/",
-    "baseUrl": "src/"
+    "baseUrl": "src/",
+    "sourceRoot": "src/"
   },
-  "files": [
-    "src/index.ts"
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
   ],
   "compileOnSave": false
 }

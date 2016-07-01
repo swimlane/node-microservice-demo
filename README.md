@@ -1,4 +1,8 @@
-# nodejs-seed
+# nodejs-seed 
+[![Code Climate](https://codeclimate.com/github/swimlane/nodejs-seed/badges/gpa.svg)](https://codeclimate.com/github/swimlane/nodejs-seed)
+[![Test Coverage](https://codeclimate.com/github/swimlane/nodejs-seed/badges/coverage.svg)](https://codeclimate.com/github/swimlane/nodejs-seed/coverage)
+[![spec](http://online.swagger.io/validator?url=https://github.com/swimlane/nodejs-seed/tree/master/src/modules/admin/swagger.yml) 
+
 Example project for:
 
 - Micro-service APIs
