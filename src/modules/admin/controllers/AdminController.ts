@@ -10,17 +10,19 @@ export class AdminController {
   constructor() {
     // swagger client
     this.client = new Swagger({
-      url: 'http://petstore.swagger.io/v2/swagger.json'
+      url: 'http://petstore.swagger.io/v2/swagger.json',
+      usePromise: true
     });
   }
 
   @Get('/')
   async get(): Promise<any> {
-    return 'YES!';
+    let client = await this.client
 
-    //let pet = await this.client.pet.getPetById(
-    //  { petId: 7 }, { responseContentType: 'application/json' });
-    // console.log('PET', pet);
+    let pet = await client.pet.getPetById(
+      { petId: 7 }, { responseContentType: 'application/json' });
+
+    return pet;
   }
 
 }
