@@ -19,10 +19,20 @@ Example project for:
 
 ## Developing
 
-### TypeScript
-`nodejs-seed` uses [ts-node](https://github.com/TypeStrong/ts-node) for on-the-fly compilation. 
+### Commands
+We use [npm tasks](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) as our build tool.
+Below are the commands for the task runner.
 
-If you are installing a new project, you will likely need to install the typings for that
+- `npm start`: Builds and starts the project with node-mon
+- `npm run clean`: Cleans the dist folder
+- `npm run dev`: Builds, watches and starts the project with node-mon
+- `npm run debug`: Builds, watches and starts the project with node-inspector
+- `npm run lint`: Runs ts-lint code style checks on the project
+- `npm run test`: Runs the tests using mocha
+- `npm run chk-updates`: Searches for updates to libraries used
+
+### TypeScript
+If you are installing a new third-party project, you will likely need to install the typings for that
 project like so `npm install @types/body-parser --save-dev`.
 
 When you `npm install` the project, [tslint](http://palantir.github.io/tslint/) is also installed
@@ -32,13 +42,27 @@ at the global level. It is advised you setup TSLint in your editor before commit
 Database configuration, port setups, etc for NodeJS are maintained yaml config files in `~/config`
 via [node-config](https://github.com/lorenwest/node-config).
 
-### Server
-When changes are made to files, your server will automatically reload via [nodemon](http://nodemon.io/). Nodemon is
-invoked by default when you do `npm start`.
+### Debugging / Profiling
 
-### Debugging
-Webstorm, Visual Studio Code and [NodeInspector](https://github.com/node-inspector/node-inspector) are recommended tools
-for breakpoint and performance debugging.
+#### Node Inspector
+[NodeInspector](https://github.com/node-inspector/node-inspector) is a visual debugging interface
+for NodeJS applications based on Chrome DevTools. It offers rich debugging and profiling.
+
+- [Debugging NodeJS in Chrome DevTools](https://mattdesl.svbtle.com/debugging-nodejs-in-chrome-devtools)
+
+#### VSCode
+[VSCode](https://code.visualstudio.com/) is a free code editor by Microsoft. It offers 
+rich debugging capability and integration with NodeJS and TypeScript. I've pre-configured
+VSCode to automatically run build tasks/etc when you click debug.
+
+- [Debugging with VSCode by Jon Pappa](https://johnpapa.net/debugging-with-visual-studio-code/)
+
+#### Webstorm
+[Webstorm](https://www.jetbrains.com/webstorm/) is a rich JavaScript IDE by Jetbrains. It offers
+advanced code completion, debugging and profiling.
+
+- [Running and debugging NodeJS Apps with Webstorm](https://blog.jetbrains.com/webstorm/2014/02/running-and-debugging-node-js-application/)
+
 
 ## Resources
 
@@ -51,7 +75,10 @@ for breakpoint and performance debugging.
 ### References
 - [TypeScript Definitions in 2.0](https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/)
 - [Swagger Node - Official](https://github.com/swagger-api/swagger-node)
+
+### Interesting
 - [Express OpenAPI](https://github.com/kogosoftwarellc/express-openapi)
+- [SwaggerTS](https://github.com/lukeautry/swagger-ts)
 
 ### Reads
 - [Netflix Scaling Node](https://medium.com/@nodejs/netflixandchill-how-netflix-scales-with-node-js-and-containers-cf63c0b92e57#.9bzn8wm4u)

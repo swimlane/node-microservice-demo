@@ -5,11 +5,11 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/index.js",
+            "program": "${workspaceRoot}/dist/index.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,
+            "preLaunchTask": "build",
             "runtimeExecutable": null,
             "runtimeArgs": [
                 "--nolazy"
@@ -19,7 +19,7 @@
             },
             "externalConsole": false,
             "sourceMaps": true,
-            "outDir": null
+            "outDir": "${workspaceRoot}/dist/"
         },
         {
             "name": "Attach",

@@ -4,13 +4,10 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": false,
-    "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "pretty": true,
     "allowUnreachableCode": true,
     "allowUnusedLabels": true,
@@ -22,11 +19,11 @@
     "allowSyntheticDefaultImports": true,
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "dist",
-    "baseUrl": "src"
+    "outDir": "dist/",
+    "baseUrl": "src/"
   },
   "files": [
-
+    "src/index.ts"
   ],
   "compileOnSave": false
 }
