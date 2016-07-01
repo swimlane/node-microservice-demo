@@ -1,8 +1,9 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as yaml from 'js-yaml';
-import * as fs from 'fs';
-import * as path from 'path';
 import * as cors from 'cors';
 
 import { useExpressServer } from 'routing-controllers';
@@ -12,18 +13,18 @@ import * as openApiValidation from 'express-openapi-validation';
 
 export class ExpressConfig {
 
-	app: express.Express;
+  app: express.Express;
 
-	constructor() {
-		this.app = express();
+  constructor() {
+    this.app = express();
 
     this.app.use(cors());
-		this.app.use(bodyParser.json());
-		this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({ extended: false }));
 
     this.setupSwagger();
     this.setupControllers();
-	}
+  }
 
   setupSwagger() {
     const spath = path.resolve(__dirname, '../../src/modules/pet-store/swagger.yml');
