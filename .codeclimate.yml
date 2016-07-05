@@ -7,13 +7,8 @@ engines:
       - javascript
   scss-lint:
     enabled: true
-  eslint:
-    enabled: true
-    channel: "eslint-2"
   fixme:
     enabled: true
-  markdownlint:
-    enabled:
 ratings:
    paths:
    - "**.js"
