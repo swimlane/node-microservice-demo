@@ -1,4 +1,4 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "petstore/node_modules/typescript/lib"
 }

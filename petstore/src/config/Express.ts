@@ -40,7 +40,6 @@ export class ExpressConfig {
     const spath = path.resolve(__dirname, '../modules/pet-store/controllers');
 
     useExpressServer(this.app, {
-      routePrefix: '/api',
       controllerDirs: [ spath ]
     });
   }

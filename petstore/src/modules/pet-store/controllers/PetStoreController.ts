@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { Controller, Get, Req, Res } from 'routing-controllers';
 import * as Swagger from 'swagger-client';
 
-@Controller('/pet-store')
+@Controller('/pets')
 export class PetStoreController {
 
   client: any;

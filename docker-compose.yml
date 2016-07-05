@@ -1,11 +1,11 @@
 nginx:
-  build: ./docker/nginx
+  build: ./nginx
   links:
-    - node1:node1
+    - petstore:petstore
   ports:
     - "80:80"
-node1:
-  build: ./docker/node
+petstore:
+  build: ./node
   ports:
     - "8080"
 editor:
