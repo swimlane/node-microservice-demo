@@ -1,4 +1,4 @@
-# nodejs-seed 
+# node-microservice-demo
 [![Code Climate](https://codeclimate.com/github/swimlane/nodejs-seed/badges/gpa.svg)](https://codeclimate.com/github/swimlane/nodejs-seed)
 [![Test Coverage](https://codeclimate.com/github/swimlane/nodejs-seed/badges/coverage.svg)](https://codeclimate.com/github/swimlane/nodejs-seed/coverage)
 ![spec](http://online.swagger.io/validator?url=https://raw.githubusercontent.com/swimlane/nodejs-seed/master/src/modules/pet-store/swagger.yml) 
