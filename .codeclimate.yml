@@ -7,8 +7,6 @@ engines:
       - javascript
   scss-lint:
     enabled: true
-  nodesecurity:
-    enabled: true
   eslint:
     enabled: true
     channel: "eslint-2"
