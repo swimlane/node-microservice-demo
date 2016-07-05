@@ -20,10 +20,10 @@ Example project for:
 - petstore: petstore micro-service module
 
 ### Pre-reqs
-- Install [Docker](https://docs.docker.com/engine/installation/) & [Docker Compose](https://docs.docker.com/compose/)
-- Install Node 6.x via [nvm](https://github.com/creationix/nvm)
+- [Docker](https://docs.docker.com/engine/installation/) 
+- [Docker Compose](https://docs.docker.com/compose/)
 
-### Docker
+### Running
 Install and start docker by `docker-compose up`.
 
 
