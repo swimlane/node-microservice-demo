@@ -1,12 +1,14 @@
 nginx:
   build: ./nginx
   links:
-    - petstore:petstore
+    - "petstore:petstore"
   ports:
     - "80:80"
+    
 petstore:
-  build: ./node
+  build: ./petstore
+  volumes:
+    - "./app:/src/app"
   ports:
-    - "8080"
-editor:
-  build: swaggerapi/swagger-editor
+    - "8080:8080"
+  command: npm start

@@ -10,7 +10,6 @@ NodeJS micro-service for the petstore module.
 - `npm install`
 - `npm start`
 
-
 ## Developing
 
 ### Commands

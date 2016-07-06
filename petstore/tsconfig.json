@@ -20,7 +20,8 @@
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "dist/",
-    "baseUrl": "src/"
+    "baseUrl": "src/",
+    "listFiles": true
   },
   "include": [
     "src/**/*"

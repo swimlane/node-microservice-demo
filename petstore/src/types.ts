@@ -3,17 +3,7 @@ declare module 'swagger-client' {
   export = temp;
 }
 
-declare module 'express-openapi-validation' {
-  let temp: any;
-  export = temp;
-}
-
-declare module 'express-openapi-coercion' {
-  let temp: any;
-  export = temp;
-}
-
-declare module 'express-openapi-defaults' {
+declare module 'swagger-tools' {
   let temp: any;
   export = temp;
 }
