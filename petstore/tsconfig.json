@@ -21,7 +21,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "dist/",
     "baseUrl": "src/",
-    "listFiles": true
+    "listFiles": false
   },
   "include": [
     "src/**/*"

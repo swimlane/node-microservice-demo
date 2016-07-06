@@ -25,7 +25,7 @@ export class ExpressConfig {
   }
 
   setupSwagger() {
-    const spath = path.resolve(__dirname, '../../src/modules/pet-store/swagger.yml');
+    const spath = path.resolve('swagger.yml');
     const file = fs.readFileSync(spath, 'utf8');
     const spec = yaml.safeLoad(file);
 
@@ -37,10 +37,9 @@ export class ExpressConfig {
   }
 
   setupControllers() {
-    const spath = path.resolve(__dirname, '../modules/pet-store/controllers');
-
+    const controllersPath = path.resolve(__dirname, '../controllers');
     useExpressServer(this.app, {
-      controllerDirs: [ spath ]
+      controllerDirs: [ controllersPath ]
     });
   }
 

@@ -12,20 +12,6 @@ export class Application {
 
     this.server = express.app.listen(port, () => {
       logger.info(`
-            ,,,         ,,,
-          ;"   ^;     ;'   ",
-          ;    s$$$$$$$s     ;
-          ,  ss$$$$$$$$$$s  ,'
-          ;s$$$$$$$$$$$$$$$
-          $$$$$$$$$$$$$$$$$$
-         $$$$P""Y$$$Y""W$$$$$
-         $$$$  p"$$$"q  $$$$$
-         $$$$  .$$$$$.  $$$$
-          $$DcaU$$$$$$$$$$
-            "Y$$$"*"$$$Y"   
-               "$b.$$"     
-
-        
         ------------
         Server Started!
         Express: http://localhost:${port}
