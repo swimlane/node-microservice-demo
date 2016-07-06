@@ -32,6 +32,26 @@
             "outDir": null,
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
+        },
+        {
+            "name": "Tests",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/.bin/mocha",
+            "stopOnEntry": false,
+            "args": ["./dist/tests/**/*.spec.js"],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "pretest",
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "externalConsole": false,
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/dist/"
         }
     ]
 }

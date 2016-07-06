@@ -26,6 +26,11 @@
         {
             "taskName": "debug",
             "args": ["run", "debug"]
+        },
+        ,
+        {
+            "taskName": "pretest",
+            "args": ["run", "pretest"]
         }
     ]
 }

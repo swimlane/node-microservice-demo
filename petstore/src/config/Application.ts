@@ -5,12 +5,13 @@ import * as config from 'config';
 export class Application {
 
   server: any;
+  express: ExpressConfig;
 
   constructor()  {
-    let express = new ExpressConfig();
+    this.express = new ExpressConfig();
+    
     const port = config.get('express.port');
-
-    this.server = express.app.listen(port, () => {
+    this.server = this.express.app.listen(port, () => {
       logger.info(`
         ------------
         Server Started!
