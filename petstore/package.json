@@ -57,6 +57,7 @@
     "@types/js-yaml": "^3.5.25-alpha",
     "@types/mocha": "^2.2.25-alpha",
     "@types/node": "^4.0.26-alpha",
+    "@types/serve-static": "^1.7.25-alpha",
     "@types/supertest": "^1.1.25-alpha",
     "@types/winston": "^2.2.25-alpha",
     "chai": "^3.5.0",

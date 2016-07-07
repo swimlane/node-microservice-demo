@@ -1,5 +1,4 @@
-import { Request, Response } from 'express';
-import { Controller, Get, Req, Res } from 'routing-controllers';
+import { Controller, Get } from 'routing-controllers';
 import * as Swagger from 'swagger-client';
 
 @Controller('/pets')
