@@ -8,12 +8,24 @@
     "start": "npm run clean && npm run build && node ./dist/index.js",
     "dev": "npm run clean && npm run watch && nodemon ./dist/index.js",
     "debug": "npm run clean && npm run watch && node-debug ./index.js",
-    "clean": "./node_modules/rimraf/bin.js dist",
+
+    "clean": "npm run clean:dist & npm run clean:cov",
+      "clean:dist": "./node_modules/rimraf/bin.js dist",
+      "clean:cov": "./node_modules/rimraf/bin.js coverage",
+
     "build": "./node_modules/typescript/bin/tsc",
     "watch": "./node_modules/typescript/bin/tsc --watch",
     "lint": "./node_modules/tslint/bin/tslint ./src/**/*.ts",
+
     "pretest": "npm run clean && npm run build",
-    "test": "./node_modules/.bin/mocha ./dist/tests/**/*.spec.js"
+    "test": "npm run test:cov && npm run test:cov:remap",
+      "test:api": "mocha dist/**/*.spec.js -R spec --bail",
+      "test:unit": "mocha dist/**/*.spec.js -R spec --bail",
+      "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- dist/**/*.spec.js -R spec --bail",
+        "test:cov:remap": "npm run test:cov:remap:html & npm run test:cov:remap:loc",
+        "test:cov:remap:html": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov-report -t html",
+        "test:cov:remap:loc": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov.info -t lcovonly"
+        
   },
   "repository": {
     "type": "git",
@@ -61,7 +73,9 @@
     "@types/supertest": "^1.1.25-alpha",
     "@types/winston": "^2.2.25-alpha",
     "chai": "^3.5.0",
+    "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
+    "remap-istanbul": "^0.6.4",
     "rimraf": "^2.5.2",
     "supertest": "^1.2.0",
     "tslint": "^3.12.0-dev.2",
