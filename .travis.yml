@@ -1,9 +1,12 @@
 language: node_js
-before_install: cd petstore
 node_js:
-  - "6"
+- '6'
+before_install: cd petstore
 addons:
   code_climate:
     repo_token: c5ec083e3720556804642a0cb5222c5f81b6477b22db10f21be8eae33974cff6
 after_script:
-  - codeclimate-test-reporter < coverage/lcov.info
+- codeclimate-test-reporter < coverage/lcov.info
+notifications:
+  slack:
+    secure: a00LRM/Fe3vBio0EuJl56hvPI/+W7hs9XVFFOEiQRjuvKjag1A0J23u3xvczaBLyzOO2TpbI69qBlGq/JLDH62CWkhGxy18Fyao3MFkcH8yar2p1CArMfksQjfuIuKBUu9FkRdfvuF/aGVHvUCbmuQTUu9J9lIT4vghNYZA+TguKpEzVCRDlDKaxkdOdmCOSKWL85XoyaqrPXAshuE7G9Y6NcCgsG7hlmlzhFq9OcKQodwUODRf8SzhGy1fM7peJTSbU+I2ATqAj7ghdMzynWlobHhC1KJ6XsQ3SjutDXKyhBiH0LaGEYC2PNdYvacjGSrDnaHaASMD234G26WpSRJNhNPq9Z0LiLYFVJUjIQ0yew4rGBOO8bUI5/odC2gRjCiKc5WWcl4GlQPtyiVYnVEEkva2Puh/LwDpY0tczBmbbv3mUSBGvKMWDByLTeWDslqRnqRs1xthMVuJfIui8TBm4fpVyNq4ihpARv5KPRP+fUpbkg9q7Y5bmXSB7l+uR5ZDWVt57jSfZszL5lCnkPqmO0MWftkAFe0pdbDBFg2HRcdzZnavJXVVUA7Rfa18pEyFe1RjTKKguuCoJ2uhayuTq8HfyXHI+peuazd8Qq2ECvTrFU0HF8SAoo8jrHxYRy30rJYkZyn6YG15zN0lPcNiTdXO0Kyb93rv++2/ZQkM=
