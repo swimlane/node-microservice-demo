@@ -1,5 +1,6 @@
 nginx:
   build: ./nginx
+  container_name: ms_nginx
   links:
     - "petstore:petstore"
   ports:
@@ -7,6 +8,7 @@ nginx:
     
 petstore:
   build: ./petstore
+  container_name: ms_petstore
   volumes:
     - "./app:/src/app"
   ports:

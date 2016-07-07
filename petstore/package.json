@@ -6,9 +6,9 @@
   "scripts": {
     "check": "npm-check --skip-unused",
     "preinstall": "npm install -g typescript@next tslint@next nodemon npm-check",
-    "start": "npm run build & node ./dist/index.js",
-    "dev": "npm run clean & npm run watch & nodemon ./dist/index.js",
-    "debug": "npm run clean & npm run watch & node-debug ./index.js",
+    "start": "npm run clean && npm run build && node ./dist/index.js",
+    "dev": "npm run clean && npm run watch && nodemon ./dist/index.js",
+    "debug": "npm run clean && npm run watch && node-debug ./index.js",
     "clean": "rimraf dist",
     "build": "tsc",
     "watch": "tsc --watch",
