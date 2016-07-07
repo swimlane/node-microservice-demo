@@ -1,4 +1,5 @@
-# Petstore Micro-service
+# Petstore Micro-service 
+[![Build Status](https://travis-ci.org/swimlane/node-microservice-demo.svg?branch=master)](https://travis-ci.org/swimlane/node-microservice-demo)
 NodeJS micro-service for the petstore module.
 
 ## Getting Started
