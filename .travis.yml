@@ -1,3 +1,4 @@
 language: node_js
+before_script: cd petstore
 node_js:
   - "6"

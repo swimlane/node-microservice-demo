@@ -1,7 +1,7 @@
 # node-microservice-demo
 [![Code Climate](https://codeclimate.com/github/swimlane/nodejs-seed/badges/gpa.svg)](https://codeclimate.com/github/swimlane/nodejs-seed)
 [![Test Coverage](https://codeclimate.com/github/swimlane/nodejs-seed/badges/coverage.svg)](https://codeclimate.com/github/swimlane/nodejs-seed/coverage)
-![spec](http://online.swagger.io/validator?url=https://raw.githubusercontent.com/swimlane/nodejs-seed/master/src/modules/pet-store/swagger.yml) 
+[![Build Status](https://travis-ci.org/swimlane/node-microservice-demo.svg?branch=master)](https://travis-ci.org/swimlane/node-microservice-demo)
 
 Example project for:
 
