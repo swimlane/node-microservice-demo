@@ -1,6 +1,6 @@
 # node-microservice-demo
-[![Code Climate](https://codeclimate.com/github/swimlane/nodejs-seed/badges/gpa.svg)](https://codeclimate.com/github/swimlane/nodejs-seed)
-[![Test Coverage](https://codeclimate.com/github/swimlane/nodejs-seed/badges/coverage.svg)](https://codeclimate.com/github/swimlane/nodejs-seed/coverage)
+[![Code Climate](https://codeclimate.com/github/swimlane/node-microservice-demo/badges/gpa.svg)](https://codeclimate.com/github/swimlane/node-microservice-demo)
+[![Test Coverage](https://codeclimate.com/github/swimlane/node-microservice-demo/badges/coverage.svg)](https://codeclimate.com/github/swimlane/node-microservice-demo/coverage)
 [![Build Status](https://travis-ci.org/swimlane/node-microservice-demo.svg?branch=master)](https://travis-ci.org/swimlane/node-microservice-demo)
 
 Example project for:
