@@ -57,7 +57,8 @@
     "routing-controllers": "^0.6.0-alpha.9",
     "swagger-client": "^2.1.15",
     "swagger-tools": "^0.10.1",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "express-winston": "^1.4.2"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.27-alpha",
@@ -79,6 +80,6 @@
     "rimraf": "^2.5.2",
     "supertest": "^1.2.0",
     "tslint": "^3.12.0-dev.2",
-    "typescript": "^2.0.0-dev.20160701"
+    "typescript": "^2.0.0"
   }
 }

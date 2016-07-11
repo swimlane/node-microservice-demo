@@ -12,9 +12,13 @@ import { useExpressServer } from 'routing-controllers';
 import * as swaggerTools from 'swagger-tools';
 import * as expressJwt from 'express-jwt';
 
+import * as winston from 'winston';
+import * as expressWinston from 'express-winston';
+
 export class ExpressConfig {
 
   app: express.Express;
+  jwt: any;
 
   constructor() {
     this.app = express();
@@ -23,8 +27,17 @@ export class ExpressConfig {
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
 
+    this.setupLogging();
+    this.setupJwt();
     this.setupSwagger();
     this.setupControllers();
+  }
+
+  setupJwt() {
+    const jwtSecret = config.get('auth.jwt_secret').toString();
+    this.jwt = expressJwt({
+      secret: new Buffer(jwtSecret, 'base64')
+    });
   }
 
   setupSwagger() {
@@ -33,34 +46,29 @@ export class ExpressConfig {
     const file = fs.readFileSync(spath, 'utf8');
     const spec = yaml.safeLoad(file);
     
-    // init jwt middleware
-    const jwtSecret = config.get('auth.jwt_secret').toString();
-    let jwt = expressJwt({
-      secret: new Buffer(jwtSecret, 'base64')
-    });
-
     // setup middleware swagger middleware in express
     swaggerTools.initializeMiddleware(spec, (middleware) => {
       this.app.use(middleware.swaggerMetadata());
-      
+      this.app.use(this.setupSwaggerSecurity(middleware));
+      this.app.use(middleware.swaggerUi());
       this.app.use(middleware.swaggerValidator({
         validateResponse: true
       }));
+    });
+  }
 
-      this.app.use(middleware.swaggerSecurity({
-        jwt_token: (req, authOrSecDef, scopes, cb) => {
-          jwt(req, req.res, (err) => {
-            if (req.userName === undefined) {
-              return cb(new Error('Access Denied!'));
-            } else {
-              logger.info(`${req.userName} authorized`, req.userName);
-              return cb(null);
-            }
-          });
-        }
-      }));
-
-      this.app.use(middleware.swaggerUi());
+  setupSwaggerSecurity(middleware) {
+    return middleware.swaggerSecurity({
+      jwt_token: (req, authOrSecDef, scopes, cb) => {
+        this.jwt(req, req.res, (err) => {
+          if (req.userName === undefined) {
+            return cb(new Error('Access Denied!'));
+          } else {
+            logger.info(`${req.userName} authorized`, req.userName);
+            return cb(null);
+          }
+        });
+      }
     });
   }
 
@@ -69,6 +77,28 @@ export class ExpressConfig {
     useExpressServer(this.app, {
       controllerDirs: [ controllersPath ]
     });
+  }
+
+  setupLogging() {
+    // error logging
+    this.app.use(expressWinston.errorLogger({
+      transports: [
+        new winston.transports.Console({
+          json: true,
+          colorize: true
+        })
+      ]
+    }));
+
+    // request logging
+    this.app.use(expressWinston.logger({
+      transports: [
+        new winston.transports.Console({
+          json: true,
+          colorize: true
+        })
+      ]
+    }));
   }
 
 }
