@@ -17,7 +17,6 @@
       "check-separator",
       "check-type"
     ],
-    "no-require-imports": true,
     "no-reference": true,
     "ordered-imports": false,
     "no-trailing-whitespace": false
