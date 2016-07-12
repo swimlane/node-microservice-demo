@@ -13,7 +13,7 @@ export class PetService {
   }
 
   async get(id: number) {
-    let client = await this.swagger;
+    let client = await this.swagger.client;
     let pet = await client.pet.getPetById({ petId: id });
     return pet;
   }

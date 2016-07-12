@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 
-import { useExpressServer } from 'routing-controllers';
+import { useExpressServer, useContainer } from 'routing-controllers';
 import { Container } from 'typedi';
 
 import { setupLogging } from './Logging';
@@ -27,12 +27,12 @@ export class ExpressConfig {
 
   setupControllers() {
     const controllersPath = path.resolve('dist', 'controllers');
+    
     useExpressServer(this.app, {
-      controllerDirs: [ controllersPath ],
-      options: {
-        container: Container
-      }
+      controllerDirs: [ controllersPath ]
     });
+
+    useContainer(Container);
   }
 
 }
