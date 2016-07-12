@@ -1,0 +1,4 @@
+express:
+  port: 8080
+auth: 
+  jwt_secret: 'UR4swimlane$'
