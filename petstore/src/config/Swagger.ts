@@ -18,10 +18,10 @@ export function setupSwagger(app) {
   
   // setup middleware swagger middleware in express
   swaggerTools.initializeMiddleware(spec, (middleware) => {
-    this.app.use(middleware.swaggerUi());
-    this.app.use(middleware.swaggerMetadata());
-    this.app.use(setupSwaggerSecurity(middleware, jwt));
-    this.app.use(middleware.swaggerValidator({
+    app.use(middleware.swaggerUi());
+    app.use(middleware.swaggerMetadata());
+    app.use(setupSwaggerSecurity(middleware, jwt));
+    app.use(middleware.swaggerValidator({
       validateResponse: true
     }));
   });

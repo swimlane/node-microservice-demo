@@ -3,12 +3,13 @@ import { Service } from 'typedi';
 import * as config from 'config';
 
 @Service()
-export class PetSwagger extends Swagger {
+export class PetSwagger {
 
   pet: any;
   
   constructor() {
-    super({ 
+    // TODO: Can't get this to extend correctly
+    return new Swagger({ 
       url: config.get('spec.petstore'),
       usePromise: true
     });
