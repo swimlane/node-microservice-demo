@@ -1,22 +1,16 @@
 import { Controller, Get } from 'routing-controllers';
-import * as Swagger from 'swagger-client';
+import { Inject } from 'typedi';
+import { PetModel } from '../models/PetModel';
 
 @Controller('/pets')
 export class PetStoreController {
 
-  client: any;
-
-  constructor() {
-    // swagger client
-    this.client = new Swagger({
-      url: 'http://petstore.swagger.io/v2/swagger.json',
-      usePromise: true
-    });
-  }
+  @Inject()
+  pets: PetModel;
 
   @Get('/')
   async get(): Promise<any> {
-    let client = await this.client;
+    let client = await this.pets.client;
     let pet = await client.pet.getPetById({ petId: 7 });
     return pet;
   }
