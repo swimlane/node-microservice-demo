@@ -5,12 +5,13 @@ import * as config from 'config';
 @Service()
 export class PetSwagger {
 
-  pet: any;
+  client: any;
   
   constructor() {
-    // TODO: Can't get this to extend correctly
-    return new Swagger({ 
-      url: config.get('spec.petstore'),
+     // TODO: Can't get this to extend correctly
+    this.client = new Swagger({ 
+      // TODO: spec.petstore doesn't work ...
+      url: config.get('petstore'),
       usePromise: true
     });
   }
