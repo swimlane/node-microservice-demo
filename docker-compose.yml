@@ -1,16 +1,24 @@
 nginx:
-  build: ./nginx
-  container_name: ms_nginx
-  links:
-    - "petstore:petstore"
-  ports:
-    - "80:80"
-    
+    build: ./nginx
+    container_name: ms_nginx
+    links:
+        - "petstore:petstore"
+    ports:
+        - "80:80"
+
 petstore:
-  build: ./petstore
-  container_name: ms_petstore
-  volumes:
-    - "./app:/src/app"
-  ports:
-    - "8080:8080"
-  command: npm start
+    build: ./petstore
+    container_name: ms_petstore
+    links:
+        - "mongo:mongo"
+    volumes:
+        - "./app:/src/app"
+    ports:
+        - "8080:8080"
+    command: npm start
+
+mongo:
+    container_name: ms_mongo
+    image: mongo:latest
+    ports:
+        - "27017:27017"
