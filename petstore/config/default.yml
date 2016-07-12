@@ -2,3 +2,5 @@ express:
   port: 8080
 auth: 
   jwt_secret: 'UR4swimlane$'
+spec:
+	petstore: 'http://petstore.swagger.io/v2/swagger.json'

@@ -1,16 +1,10 @@
-import * as Swagger from 'swagger-client';
-import { Service } from 'typedi';
-
-@Service()
 export class PetModel {
 
-  client: any;
+  type: string = 'Panda';
+  
+  color: string = 'White';
 
-  constructor() {
-    this.client = new Swagger({
-      url: 'http://petstore.swagger.io/v2/swagger.json',
-      usePromise: true
-    });
+  constructor(public name: string = 'Austin') {
   }
 
 }

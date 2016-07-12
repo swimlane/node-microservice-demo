@@ -1,18 +1,16 @@
 import { Controller, Get } from 'routing-controllers';
 import { Inject } from 'typedi';
-import { PetModel } from '../models/PetModel';
+import { PetService, PetModel } from '../services/PetService';
 
 @Controller('/pets')
 export class PetStoreController {
 
   @Inject()
-  pets: PetModel;
+  petService: PetService;
 
   @Get('/')
-  async get(): Promise<any> {
-    let client = await this.pets.client;
-    let pet = await client.pet.getPetById({ petId: 7 });
-    return pet;
+  async get(): Promise<PetModel> {
+    return this.petService.get(3);
   }
 
 }

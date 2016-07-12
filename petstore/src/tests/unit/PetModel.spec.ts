@@ -3,7 +3,7 @@ import { PetModel } from '../../models/PetModel';
 
 describe('PetModel', () => {
 
-  it('Pets should return 200', (done) => {
+  it('Pets name should be Panda', (done) => {
     let name = 'panda';
     let model = new PetModel(name);
     expect(model.name).to.be.equal(name);

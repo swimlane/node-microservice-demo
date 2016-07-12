@@ -1,6 +1,6 @@
 import * as request from 'supertest';
-import { expect } from 'chai';
 import * as server from '../../index';
+// import { expect } from 'chai';
 
 describe('PetStoreController', () => {
 
@@ -11,6 +11,7 @@ describe('PetStoreController', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done);
+      
   });
   
 });
