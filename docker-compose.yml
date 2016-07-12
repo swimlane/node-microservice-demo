@@ -2,7 +2,8 @@ nginx:
     build: ./nginx
     container_name: ms_nginx
     links:
-        - "petstore:petstore"
+        - petstore
+        - users
     ports:
         - "80:80"
 
@@ -14,8 +15,16 @@ petstore:
     volumes:
         - "./petstore:/src/app"
     working_dir: "/src/app"
-    ports:
-        - "8080:8080"
+    command: npm start
+
+users:
+    build: ./users
+    container_name: ms_users
+    links:
+        - neo4j
+    volumes:
+        - "./users:/src/app"
+    working_dir: "/src/app"
     command: npm start
 
 mongo:
@@ -25,3 +34,12 @@ mongo:
         - loglevel=1
     ports:
         - "27017:27017"
+
+neo4j:
+    container_name: neo4j
+    image: neo4j:latest
+    environment:
+      - NEO4J_AUTH=none
+    ports:
+      - "7474:7474"
+      - "7687:7687"
