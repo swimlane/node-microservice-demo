@@ -12,7 +12,8 @@ petstore:
     links:
         - "mongo:mongo"
     volumes:
-        - "./app:/src/app"
+        - "./petstore:/src/app"
+    working_dir: "/src/app"
     ports:
         - "8080:8080"
     command: npm start
@@ -20,5 +21,7 @@ petstore:
 mongo:
     container_name: ms_mongo
     image: mongo:latest
+    environment:
+        - loglevel=1
     ports:
         - "27017:27017"
