@@ -6,12 +6,11 @@ import * as config from 'config';
 export class PetSwagger {
 
   client: any;
-  
+
   constructor() {
      // TODO: Can't get this to extend correctly
-    this.client = new Swagger({ 
-      // TODO: spec.petstore doesn't work ...
-      url: config.get('petstore'),
+    this.client = new Swagger({
+      url: config.get('spec.petstore'),
       usePromise: true
     });
   }
