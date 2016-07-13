@@ -14,12 +14,12 @@ export class PetStoreController {
   }
 
   @Get('/:id')
-  async get(@Param('id') id: number): Promise<PetModel> {
+  async getById(@Param('id') id: number): Promise<PetModel> {
     return this.petService.get(id);
   }
 
   @Get('/save')
-  async get(): Promise<PetModel> {
+  async saveByGet(): Promise<PetModel> {
     return this.petService.save(7);
   }
 

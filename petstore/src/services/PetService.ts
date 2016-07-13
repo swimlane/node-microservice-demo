@@ -20,7 +20,7 @@ export class PetService extends MongoService {
     return pet;
   }
 
-  async save() {
+  async save(id: number) {
     let client = await this.swagger.client;
     let pet = await client.pet.getPetById({ petId: id });
     let result = await this.insertOne(pet);

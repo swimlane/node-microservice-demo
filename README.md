@@ -3,6 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/swimlane/node-microservice-demo/badges/coverage.svg)](https://codeclimate.com/github/swimlane/node-microservice-demo/coverage)
 [![Build Status](https://travis-ci.org/swimlane/node-microservice-demo.svg?branch=master)](https://travis-ci.org/swimlane/node-microservice-demo)
 -[![codecov](https://codecov.io/gh/swimlane/node-microservice-demo/branch/master/graph/badge.svg)](https://codecov.io/gh/swimlane/node-microservice-demo)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bbf1a748327f47babd50cdeb86587353)](https://www.codacy.com/app/Swimlane/node-microservice-demo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=swimlane/node-microservice-demo&amp;utm_campaign=Badge_Grade)
 
 Example project for:
 
