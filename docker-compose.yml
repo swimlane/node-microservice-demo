@@ -36,7 +36,7 @@ mongo:
         - "27017:27017"
 
 neo4j:
-    container_name: neo4j
+    container_name: ms_neo4j
     image: neo4j:latest
     environment:
       - NEO4J_AUTH=none
