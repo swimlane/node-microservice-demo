@@ -2,7 +2,11 @@ language: node_js
 node_js:
 	- '6'
 
-before_install: cd petstore
+env:
+  - SERVICE=petstore
+  - SERVICE=users
+
+before_install: cd $SERVICE
 
 addons:
   	code_climate:
