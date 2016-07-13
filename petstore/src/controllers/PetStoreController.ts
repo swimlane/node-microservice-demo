@@ -10,7 +10,7 @@ export class PetStoreController {
 
   @Get('/')
   async get(): Promise<PetModel> {
-    return this.petService.get(3);
+    return this.petService.get(7);
   }
 
 }
