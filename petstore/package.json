@@ -48,6 +48,7 @@
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "express-jwt": "^3.4.0",
+    "express-ping": "^1.1.0",
     "express-winston": "^1.4.2",
     "js-yaml": "^3.6.1",
     "mongodb": "^2.2.1",
