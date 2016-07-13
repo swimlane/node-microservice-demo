@@ -1,7 +1,5 @@
 ---
 engines:
-    duplication:
-        enabled: true
     fixme:
         enabled: true
 exclude_paths:
