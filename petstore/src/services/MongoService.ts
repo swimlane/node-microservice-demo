@@ -10,7 +10,7 @@ export abstract class MongoService {
   abstract collectionName: string;
 
   async collection(name?: string) {
-    let db = await this.mongodb.getDb();
+    let db = await this.mongodb.db();
     return db.collection(name || this.collectionName);
   }
 
