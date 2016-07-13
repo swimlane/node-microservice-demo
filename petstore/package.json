@@ -8,7 +8,7 @@
     "preinstall": "npm i -g nodemon node-inspector rimraf npm-run-all npm-check",
 
     "start": "npm-run-all -s clean build start:simple",
-      "start:simple": "node ./dist/index.js",
+      "start:simple": "node .",
       "start:dev": "npm-run-all -s clean build -p watch:*",
       "start:debug": "npm-run-all -s clean build -p watch:ts debug",
 
@@ -16,19 +16,19 @@
       "clean:dist": "rimraf dist",
       "clean:cov": "rimraf coverage",
 
-    "debug": "node-debug & nodemon --debug ./dist/index.js --delay 2.5",
+    "debug": "node-debug & nodemon --debug --delay 2.5",
 
     "build": "./node_modules/typescript/bin/tsc",
 
     "watch:ts": "./node_modules/typescript/bin/tsc --watch",
-    "watch:node": "nodemon ./dist/index.js --delay 2.5",
+    "watch:node": "nodemon --delay 2.5",
 
     "lint": "./node_modules/tslint/bin/tslint ./src/{,**/}*.ts",
     "pretest": "npm-run-all -s clean build",
 
     "test": "npm-run-all -s test:cov test:cov:remap",
-      "test:api": "mocha dist/**/*.spec.js -R spec --bail",
-      "test:unit": "mocha dist/**/*.spec.js -R spec --bail",
+      "test:api": "mocha dist/tests/api/*.spec.js -R spec --bail",
+      "test:unit": "mocha dist/tests/unit/*.spec.js -R spec --bail",
       "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- dist/**/*.spec.js -R spec --bail",
         "test:cov:remap": "npm-run-all test:cov:remap:*",
         "test:cov:remap:html": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov-report -t html",
