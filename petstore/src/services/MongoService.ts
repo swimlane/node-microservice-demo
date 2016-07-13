@@ -9,7 +9,7 @@ export class MongoService {
     const url = config.get('mongo.url').toString();
     MongoClient.connect(url, (err, db) => {
       console.log("Connected correctly to server");
-      db.close();
+      if(db) db.close();
     });
   }
 
