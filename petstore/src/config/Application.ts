@@ -27,6 +27,14 @@ export class Application {
         ------------
       `);
     });
+
+    // Shutdown gracefully
+    process.on('SIGTERM', () => {
+      logger.info('Server shutting down.');
+      this.server.close();
+      // neo.close();
+      logger.info('Server is down, goodbye.');
+    });
   }
 
 }
