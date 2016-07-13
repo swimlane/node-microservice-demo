@@ -14,7 +14,6 @@ addons:
 
 after_script:
     - codeclimate-test-reporter < coverage/lcov.info
-    - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   slack:
