@@ -1,5 +1,7 @@
 FROM node:latest
 
+RUN npm i -g nodemon node-inspector npm-run-all rimraf
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
