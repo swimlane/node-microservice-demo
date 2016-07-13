@@ -1,16 +1,8 @@
 ---
 engines:
-  duplication:
-    enabled: true
-    config:
-      languages:
-      - javascript
-  scss-lint:
-    enabled: true
-  fixme:
-    enabled: true
-ratings:
-   paths:
-   - "**.js"
+    duplication:
+        enabled: true
+    fixme:
+        enabled: true
 exclude_paths:
-- .node_modules/
+    - .node_modules/
