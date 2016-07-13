@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
+import * as health from 'express-ping';
 
 import { useExpressServer } from 'routing-controllers';
 import { Container } from 'typedi';
@@ -21,6 +22,7 @@ export class ExpressConfig {
     this.app.use(cors());
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(health.ping());
 
     this.setupControllers();
   }
