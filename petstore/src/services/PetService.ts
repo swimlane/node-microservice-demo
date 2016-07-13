@@ -3,14 +3,12 @@ import { PetModel } from '../models/PetModel';
 import { PetSwagger } from './PetSwagger';
 import { MongoService } from './MongoService';
 
-@Service()
-export class PetService {
+export class PetService extends MongoService {
 
   @Inject()
   swagger: PetSwagger;
 
-  @Inject()
-  mongo: MongoService;
+  collectionName: string = 'Pets';
 
   create(obj) {
     throw new Error('todo!');
@@ -23,7 +21,10 @@ export class PetService {
   }
 
   async save() {
-    throw new Error('todo!');
+    let client = await this.swagger.client;
+    let pet = await client.pet.getPetById({ petId: id });
+    let result = await this.insertOne(pet);
+    return result;
   }
 
   async update() {

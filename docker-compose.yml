@@ -12,6 +12,8 @@ mongo:
     image: mongo:latest
     ports:
         - "27017:27017"
+    volumes:
+        - "./mongo/db:/data/db"
 
 nginx:
     build: ./nginx
@@ -25,6 +27,8 @@ nginx:
 petstore:
     build: ./petstore
     container_name: ms_petstore
+    environment:
+        - loglevel=none
     links:
         - "mongo:mongo"
     volumes:
@@ -34,7 +38,7 @@ petstore:
         - "8080:8080"
         - "5858:5858"
     # command: npm run start
-    command: npm run start:dev 
+    command: npm run start:dev
 
 users:
     build: ./users
