@@ -6,3 +6,6 @@ auth:
 
 spec:
     petstore: 'http://petstore.swagger.io/v2/swagger.json'
+
+mongo:
+    url: 'mongodb://mongo:27017'

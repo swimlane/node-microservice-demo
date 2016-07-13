@@ -1,12 +1,16 @@
 import { Service, Inject } from 'typedi';
 import { PetModel } from '../models/PetModel';
 import { PetSwagger } from './PetSwagger';
+import { MongoService } from './MongoService';
 
 @Service()
 export class PetService {
 
   @Inject()
   swagger: PetSwagger;
+
+  @Inject()
+  mongo: MongoService;
 
   create(obj) {
     throw new Error('todo!');
