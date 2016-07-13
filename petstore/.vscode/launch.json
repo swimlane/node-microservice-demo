@@ -5,7 +5,7 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/dist/index.js",
+            "program": "${workspaceRoot}/index.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
@@ -32,6 +32,18 @@
             "outDir": null,
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
+        },
+        {
+            "name": "Attach Docker",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": true,
+            "sourceMaps": true,
+            "outDir": "${workspaceRoot}/dist/",
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "/src/app"
         },
         {
             "name": "Tests",

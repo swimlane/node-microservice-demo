@@ -34,7 +34,7 @@ petstore:
         - "8080:8080"
         - "5858:5858"
     # command: npm run start
-    command: nodemon --debug=5858
+    command: npm run start:dev 
 
 users:
     build: ./users

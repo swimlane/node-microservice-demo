@@ -10,18 +10,18 @@
     "start": "npm-run-all -s clean build start:simple",
       "start:simple": "node .",
       "start:dev": "npm-run-all -s clean build -p watch:*",
-      "start:debug": "npm-run-all -s clean build -p watch:ts debug",
+      "start:debug": "npm-run-all -s clean build -p watch:* debug",
 
     "clean": "npm-run-all -p clean:*",
       "clean:dist": "rimraf dist",
       "clean:cov": "rimraf coverage",
 
-    "debug": "node-debug & nodemon --debug --delay 2.5",
+    "debug": "node-debug",
 
     "build": "./node_modules/typescript/bin/tsc",
 
     "watch:ts": "./node_modules/typescript/bin/tsc --watch",
-    "watch:node": "nodemon --delay 2.5",
+    "watch:node": "nodemon --debug --delay 2.5",
 
     "lint": "./node_modules/tslint/bin/tslint ./src/{,**/}*.ts",
     "pretest": "npm-run-all -s clean build",
@@ -86,6 +86,7 @@
     "@types/supertest": "^1.1.25-alpha",
     "@types/winston": "^2.2.25-alpha",
     "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.3.3",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
     "remap-istanbul": "^0.6.4",
