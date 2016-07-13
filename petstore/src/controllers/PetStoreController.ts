@@ -1,5 +1,6 @@
 import { Controller, Get, Param } from 'routing-controllers';
 import { Inject } from 'typedi';
+import { InsertOneWriteOpResult } from 'mongodb';
 import { PetService, PetModel } from '../services/PetService';
 
 @Controller('/pets')
@@ -19,7 +20,7 @@ export class PetStoreController {
   }
 
   @Get('/save')
-  async saveByGet(): Promise<PetModel> {
+  async saveByGet(): Promise<InsertOneWriteOpResult> {
     return this.petService.save(7);
   }
 
