@@ -1,16 +1,27 @@
-import { MongoClient } from 'mongodb';
-import * as config from 'config';
-import { Service } from 'typedi';
+import { Service, Inject } from 'typedi';
+import { Mongo } from '../config/Mongo';
 
 @Service()
-export class MongoService {
+export abstract class MongoService {
 
-  constructor() {
-    const url = config.get('mongo.url').toString();
-    MongoClient.connect(url, (err, db) => {
-      console.log("Connected correctly to server");
-      if(db) db.close();
-    });
+  @Inject()
+  mongodb: Mongo;
+
+  abstract collectionName: string;
+
+  async collection(name?: string) {
+    let db = await this.mongodb.getDb();
+    return db.collection(name || this.collectionName);
+  }
+
+  async insertOne(document: any) {
+    let col = await this.collection();
+    return col.insertOne(document);
+  }
+
+  async insertMany(documents: any[]) {
+    let col = await this.collection();
+    return col.insertMany(documents);
   }
 
 }

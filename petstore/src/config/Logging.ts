@@ -3,11 +3,12 @@ import * as config from 'config';
 import * as expressWinston from 'express-winston';
 import { logger } from '../common/logging';
 
-export function setupLogging(app) {
-  const env = config.util.getEnv('NODE_ENV');
+const env = config.util.getEnv('NODE_ENV');
+const level = config.get('loglevel');
 
+export function setupLogging(app) {
   // Development Logger
-  if(env === 'development') {
+  if(env === 'development' && level === 'info') {
     logger.add(winston.transports.Console, {
       type: 'verbose',
       colorize: true,
@@ -22,22 +23,26 @@ export function setupLogging(app) {
 
 function setupExpress(app) {
   // error logging
-  app.use(expressWinston.errorLogger({
-    transports: [
-      new winston.transports.Console({
-        json: true,
-        colorize: true
-      })
-    ]
-  }));
+  if(level === 'debug') {
+    app.use(expressWinston.errorLogger({
+      transports: [
+        new winston.transports.Console({
+          json: true,
+          colorize: true
+        })
+      ]
+    }));
+  }
 
   // request logging
-  app.use(expressWinston.logger({
-    transports: [
-      new winston.transports.Console({
-        json: true,
-        colorize: true
-      })
-    ]
-  }));
+  if(level === 'info') {
+    app.use(expressWinston.logger({
+      transports: [
+        new winston.transports.Console({
+          json: true,
+          colorize: true
+        })
+      ]
+    }));
+  }
 };

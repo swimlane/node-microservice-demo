@@ -9,3 +9,6 @@ spec:
 
 mongo:
     url: 'mongodb://mongo:27017'
+
+# none/debug/info
+loglevel: none
