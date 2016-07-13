@@ -1,3 +1,18 @@
+neo4j:
+    container_name: ms_neo4j
+    image: neo4j:latest
+    environment:
+      - NEO4J_AUTH=none
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+mongo:
+    container_name: ms_mongo
+    image: mongo:latest
+    ports:
+        - "27017:27017"
+
 nginx:
     build: ./nginx
     container_name: ms_nginx
@@ -16,8 +31,10 @@ petstore:
         - "./petstore:/src/app"
     working_dir: "/src/app"
     ports:
+        - "8080:8080"
         - "5858:5858"
-    command: npm start
+    # command: npm run start
+    command: nodemon --debug=5858
 
 users:
     build: ./users
@@ -28,20 +45,3 @@ users:
         - "./users:/src/app"
     working_dir: "/src/app"
     command: npm start
-
-mongo:
-    container_name: ms_mongo
-    image: mongo:latest
-    environment:
-        - loglevel=1
-    ports:
-        - "27017:27017"
-
-neo4j:
-    container_name: ms_neo4j
-    image: neo4j:latest
-    environment:
-      - NEO4J_AUTH=none
-    ports:
-      - "7474:7474"
-      - "7687:7687"
