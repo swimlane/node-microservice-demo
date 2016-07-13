@@ -66,6 +66,6 @@
     "rimraf": "^2.5.2",
     "supertest": "^1.2.0",
     "tslint": "^3.12.0-dev.2",
-    "typescript": "^2.0.0-dev.20160701"
+    "typescript": "^2.0.0"
   }
 }
