@@ -6,6 +6,8 @@ import * as yaml from 'js-yaml';
 import { logger } from '../common/logging';
 import { setupJwt } from './Authentication';
 
+// setup auth
+let jwt = setupJwt();
 
 export function setupSwagger(app) {
   // resolve the spec
@@ -13,21 +15,18 @@ export function setupSwagger(app) {
   const file = fs.readFileSync(spath, 'utf8');
   const spec = yaml.safeLoad(file);
 
-  // setup auth
-  let jwt = setupJwt();
-  
   // setup middleware swagger middleware in express
   swaggerTools.initializeMiddleware(spec, (middleware) => {
     app.use(middleware.swaggerUi());
     app.use(middleware.swaggerMetadata());
-    app.use(setupSwaggerSecurity(middleware, jwt));
+    app.use(setupSwaggerSecurity(middleware));
     app.use(middleware.swaggerValidator({
       validateResponse: true
     }));
   });
 };
 
-function setupSwaggerSecurity(middleware, jwt) {
+function setupSwaggerSecurity(middleware) {
   return middleware.swaggerSecurity({
     jwt_token: (req, authOrSecDef, scopes, cb) => {
       jwt(req, req.res, (err) => {

@@ -3,12 +3,13 @@ import * as config from 'config';
 import * as expressWinston from 'express-winston';
 import { logger } from '../common/logging';
 
-const env = config.util.getEnv('NODE_ENV');
 const level = config.get('loglevel');
 
 export function setupLogging(app) {
   // Development Logger
-  if(env === 'development' && level === 'info') {
+  // const env = config.util.getEnv('NODE_ENV');
+  
+  if(level === 'info') {
     logger.add(winston.transports.Console, {
       type: 'verbose',
       colorize: true,
