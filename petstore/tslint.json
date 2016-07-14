@@ -18,7 +18,8 @@
       "check-type"
     ],
     "curly": false,
-    "no-reference": true,
+    "no-reference": false,
+    "no-var-requires": false,
     "ordered-imports": false,
     "no-trailing-whitespace": false
   },

@@ -1,9 +1,21 @@
+import * as swaggerJSDoc from 'swagger-jsdoc';
 import * as fs from 'fs';
-import * as path from 'path';
-import * as yaml from 'js-yaml';
+import * as glob from 'glob';
 
-const spath = path.resolve('swagger.yml');
-const file = fs.readFileSync(spath, 'utf8');
-const spec = yaml.safeLoad(file);
+let ctrls = glob.sync('./dist/controllers/*.js');
+let models = glob.sync('./dist/models/*.js');
+let { version, name, description } = require('../../package.json');
 
-// TODO
+const options = {
+  swaggerDefinition: {
+    info: {
+      title: name,
+      version,
+      description
+    }
+  },
+  apis: [ ...models, ...ctrls ]
+};
+
+const spec = swaggerJSDoc(options);
+fs.writeFile('./dist/spec.json', JSON.stringify(spec, null, '\t'));
