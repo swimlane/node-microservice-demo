@@ -24,7 +24,7 @@ export function setupSwagger(app) {
 function setupSwaggerSecurity(middleware) {
   return middleware.swaggerSecurity({
     jwt_token: (req, authOrSecDef, scopes, callback) => {
-      passport.authenticate('jwt', function(err, user, info) {
+      passport.authenticate('jwt', { session: false }, (err, user, info) => {
         if(err) callback(new Error('Error in passport authenticate'));
         if(!user) callback(new Error('Failed to authenticate oAuth token'));
         req.user = user;

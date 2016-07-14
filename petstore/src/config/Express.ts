@@ -17,7 +17,7 @@ export class ExpressConfig {
 
   constructor() {
     this.app = express();
-    
+
     setupSwagger(this.app);
     setupLogging(this.app);
     setupAuth(this.app);
