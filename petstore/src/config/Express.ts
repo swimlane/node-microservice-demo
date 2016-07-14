@@ -9,6 +9,7 @@ import { Container } from 'typedi';
 
 import { setupLogging } from './Logging';
 import { setupSwagger } from './Swagger';
+import { setupAuth } from './Authentication';
 
 export class ExpressConfig {
 
@@ -16,8 +17,10 @@ export class ExpressConfig {
 
   constructor() {
     this.app = express();
+    
     setupSwagger(this.app);
     setupLogging(this.app);
+    setupAuth(this.app);
 
     this.app.use(cors());
     this.app.use(bodyParser.json());

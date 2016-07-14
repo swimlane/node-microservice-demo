@@ -3,11 +3,7 @@ import * as path from 'path';
 
 import * as swaggerTools from 'swagger-tools';
 import * as yaml from 'js-yaml';
-import { logger } from '../common/logging';
-import { setupJwt } from './Authentication';
-
-// setup auth
-let jwt = setupJwt();
+import * as passport from 'passport';
 
 export function setupSwagger(app) {
   // resolve the spec
@@ -28,15 +24,13 @@ export function setupSwagger(app) {
 
 function setupSwaggerSecurity(middleware) {
   return middleware.swaggerSecurity({
-    jwt_token: (req, authOrSecDef, scopes, cb) => {
-      jwt(req, req.res, (err) => {
-        if (req.userName === undefined) {
-          return cb(new Error('Access Denied!'));
-        } else {
-          logger.info(`${req.userName} authorized`, req.userName);
-          return cb(null);
-        }
-      });
+    jwt_token: (req, authOrSecDef, scopes, callback) => {
+      passport.authenticate('jwt', function(err, user, info) {
+        if(err) callback(new Error('Error in passport authenticate'));
+        if(!user) callback(new Error('Failed to authenticate oAuth token'));
+        req.user = user;
+        return callback();
+      })(req, null, callback);
     }
   });
 };
