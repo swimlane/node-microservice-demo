@@ -19,6 +19,7 @@
     "debug": "node-debug",
 
     "build": "./node_modules/typescript/bin/tsc",
+      "build:swagger": "node ./dist/tasks/swagger.js",
 
     "watch:ts": "./node_modules/typescript/bin/tsc --watch",
     "watch:node": "nodemon --debug --delay 2.5",
@@ -92,8 +93,8 @@
     "remap-istanbul": "^0.6.4",
     "source-map-support": "^0.4.1",
     "supertest": "^1.2.0",
+    "ts-helpers": "^1.1.1",
     "tslint": "^3.12.0-dev.2",
-    "typescript": "^2.0.0",
-    "ts-helpers": "^1.1.1"
+    "typescript": "^2.0.0"
   }
 }
