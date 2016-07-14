@@ -65,7 +65,7 @@
     "js-yaml": "^3.6.1",
     "mongodb": "^2.2.1",
     "reflect-metadata": "^0.1.3",
-    "routing-controllers": "^0.6.0-alpha.10",
+    "routing-controllers": "^0.6.0-beta.1",
     "swagger-client": "^2.1.15",
     "swagger-tools": "^0.10.1",
     "typedi": "^0.4.1",
