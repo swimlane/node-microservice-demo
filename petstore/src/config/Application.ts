@@ -1,4 +1,5 @@
 import { ExpressConfig } from './Express';
+import { setupSockets } from './Socket';
 import { logger } from '../common/logging';
 import * as config from 'config';
 
@@ -13,6 +14,7 @@ export class Application {
     const port = config.get('ports.http');
     const debugPort = config.get('ports.debug');
 
+    // Start Webserver
     this.server = this.express.app.listen(port, () => {
       logger.info(`
         ------------
@@ -28,13 +30,8 @@ export class Application {
       `);
     });
 
-    // Shutdown gracefully
-    process.on('SIGTERM', () => {
-      logger.info('Server shutting down.');
-      this.server.close();
-      // neo.close();
-      logger.info('Server is down, goodbye.');
-    });
+    // Start Websockets
+    setupSockets(this.server);
   }
 
 }
