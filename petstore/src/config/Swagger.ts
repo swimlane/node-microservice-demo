@@ -2,14 +2,13 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import * as swaggerTools from 'swagger-tools';
-import * as yaml from 'js-yaml';
 import * as passport from 'passport';
 
 export function setupSwagger(app) {
   // resolve the spec
-  const spath = path.resolve('swagger.yml');
+  const spath = path.resolve('./dist/spec.json');
   const file = fs.readFileSync(spath, 'utf8');
-  const spec = yaml.safeLoad(file);
+  const spec = JSON.parse(file);
 
   // setup middleware swagger middleware in express
   swaggerTools.initializeMiddleware(spec, (middleware) => {
