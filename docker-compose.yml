@@ -1,51 +1,54 @@
-neo4j:
-    container_name: ms_neo4j
-    image: neo4j:latest
-    environment:
-      - NEO4J_AUTH=none
-    ports:
-      - "7474:7474"
-      - "7687:7687"
+version: '2'
 
-mongo:
-    container_name: ms_mongo
-    image: mongo:latest
-    ports:
-        - "27017:27017"
-    volumes:
-        - "./mongo/db:/data/db"
+services:
+    neo4j:
+        container_name: ms_neo4j
+        image: neo4j:latest
+        environment:
+          - NEO4J_AUTH=none
+        ports:
+          - "7474:7474"
+          - "7687:7687"
 
-nginx:
-    build: ./nginx
-    container_name: ms_nginx
-    links:
-        - petstore
-        - users
-    ports:
-        - "80:80"
+    mongo:
+        container_name: ms_mongo
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        volumes:
+            - "./mongo/db:/data/db"
 
-petstore:
-    build: ./petstore
-    container_name: ms_petstore
-    environment:
-        - loglevel=none
-    links:
-        - "mongo:mongo"
-    volumes:
-        - "./petstore:/src/app"
-    working_dir: "/src/app"
-    ports:
-        - "8080:8080"
-        - "5858:5858"
-    # command: npm run start
-    command: npm run start:dev
+    nginx:
+        build: ./nginx
+        container_name: ms_nginx
+        links:
+            - petstore
+            - users
+        ports:
+            - "80:80"
 
-users:
-    build: ./users
-    container_name: ms_users
-    links:
-        - neo4j
-    volumes:
-        - "./users:/src/app"
-    working_dir: "/src/app"
-    command: npm start
+    petstore:
+        build: ./petstore
+        container_name: ms_petstore
+        environment:
+            - loglevel=none
+        links:
+            - "mongo:mongo"
+        volumes:
+            - "./petstore:/src/app"
+        working_dir: "/src/app"
+        ports:
+            - "8080:8080"
+            - "5858:5858"
+        # command: npm run start
+        command: npm run start:dev
+
+    users:
+        build: ./users
+        container_name: ms_users
+        links:
+            - neo4j
+        volumes:
+            - "./users:/src/app"
+        working_dir: "/src/app"
+        command: npm start
