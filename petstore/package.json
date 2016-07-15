@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Nodejs + TypeScript + Swagger + Docker + Express seed project",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "check": "npm-check --skip-unused",
     "preinstall": "npm i -g nodemon node-inspector rimraf npm-run-all npm-check",
 
@@ -76,12 +76,11 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "@types/body-parser": "0.0.27-alpha",
+    "@types/body-parser": "0.0.29",
     "@types/chai": "^3.4.26-alpha",
-    "@types/config": "0.0.27-alpha",
-    "@types/cors": "0.0.27-alpha",
-    "@types/express": "^4.0.27-alpha",
-    "@types/express-jwt": "0.0.27-alpha",
+    "@types/config": "0.0.29",
+    "@types/cors": "0.0.29",
+    "@types/express": "^4.0.29",
     "@types/glob": "^5.0.29",
     "@types/js-yaml": "^3.5.25-alpha",
     "@types/mocha": "^2.2.25-alpha",
