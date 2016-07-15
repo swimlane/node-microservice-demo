@@ -10,7 +10,6 @@ import { logger } from '../common/logging';
 
 import { useExpressServer } from 'routing-controllers';
 import * as swaggerTools from 'swagger-tools';
-import * as expressJwt from 'express-jwt';
 
 export class ExpressConfig {
 
@@ -29,25 +28,26 @@ export class ExpressConfig {
 
   setupSwagger() {
     // resolve the spec
-    
+
     const spath = path.resolve('swagger.yml');
     const file = fs.readFileSync(spath, 'utf8');
     const spec = yaml.safeLoad(file);
-    
+
     // init jwt middleware
-    const jwtSecret = config.get('auth.jwt_secret').toString();
-    let jwt = expressJwt({
-      secret: new Buffer(jwtSecret, 'base64')
-    });
+    // const jwtSecret = config.get('auth.jwt_secret').toString();
+    // let jwt = expressJwt({
+    //  secret: new Buffer(jwtSecret, 'base64')
+    // });
 
     // setup middleware swagger middleware in express
     swaggerTools.initializeMiddleware(spec, (middleware) => {
       this.app.use(middleware.swaggerMetadata());
-      
+
       this.app.use(middleware.swaggerValidator({
         validateResponse: true
       }));
 
+      /*
       this.app.use(middleware.swaggerSecurity({
         jwt_token: (req, authOrSecDef, scopes, cb) => {
           jwt(req, req.res, (err) => {
@@ -60,6 +60,7 @@ export class ExpressConfig {
           });
         }
       }));
+      */
 
       this.app.use(middleware.swaggerUi());
     });
