@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Nodejs + TypeScript + Swagger + Docker + Express seed project",
   "main": "index.js",
-  "scripts": {
+    "scripts": {
     "check": "npm-check --skip-unused",
     "preinstall": "npm i -g nodemon node-inspector rimraf npm-run-all npm-check",
 
@@ -89,7 +89,7 @@
     "@types/node": "^4.0.26-alpha",
     "@types/passport": "^0.2.27",
     "@types/passport-jwt": "^2.0.18",
-    "@types/serve-static": "^1.7.25-alpha",
+    "@types/serve-static": "^1.7.27",
     "@types/socket.io": "^1.4.26",
     "@types/supertest": "^1.1.25-alpha",
     "@types/winston": "^2.2.25-alpha",
