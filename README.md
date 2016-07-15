@@ -13,6 +13,8 @@ Example project for:
 - Node 6.x
 - TypeScript 2.0
 - Express 4.0
+- Socket.io Websockets
+- PassportJS Auth
 - Swagger 2.0
 - Neo4j
 - MongoDB

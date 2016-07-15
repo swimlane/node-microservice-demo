@@ -7,10 +7,10 @@
     "check": "npm-check --skip-unused",
     "preinstall": "npm i -g nodemon node-inspector rimraf npm-run-all npm-check",
 
-    "start": "npm-run-all -s clean build:* start:simple",
+    "start": "npm-run-all -s clean build start:simple",
       "start:simple": "node .",
-      "start:dev": "npm-run-all -s clean build:* -p watch:*",
-      "start:debug": "npm-run-all -s clean build:* -p watch:* debug",
+      "start:dev": "npm-run-all -s clean build -p watch:*",
+      "start:debug": "npm-run-all -s clean build -p watch:* debug",
 
     "clean": "npm-run-all -p clean:*",
       "clean:dist": "rimraf dist",
@@ -18,8 +18,9 @@
 
     "debug": "node-debug",
 
-    "build:ts": "./node_modules/typescript/bin/tsc",
-    "build:swagger": "node ./dist/tasks/swagger.js",
+    "build": "npm-run-all -s build:ts build:swagger",
+      "build:ts": "./node_modules/typescript/bin/tsc",
+      "build:swagger": "node ./dist/tasks/swagger.js",
 
     "watch:ts": "./node_modules/typescript/bin/tsc --watch",
     "watch:node": "nodemon --debug --delay 2.5",
