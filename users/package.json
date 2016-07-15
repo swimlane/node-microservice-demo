@@ -39,7 +39,6 @@
     "config": "^1.21.0",
     "cors": "^2.7.1",
     "express": "^4.14.0",
-    "express-jwt": "^3.4.0",
     "js-yaml": "^3.6.1",
     "neo4j-driver": "1.1.0-M01",
     "reflect-metadata": "^0.1.3",
