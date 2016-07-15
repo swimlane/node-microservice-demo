@@ -26,7 +26,8 @@ Below are the commands for the task runner.
 
 ### TypeScript
 If you are installing a new third-party project, you will likely need to install the typings for that
-project like so `npm install @types/body-parser --save-dev`.
+project like so `npm install @types/body-parser --save-dev`. If types are not available
+for your module [read here](https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript#shorthand-ambient-module-declarations)
 
 When you `npm install` the project, [tslint](http://palantir.github.io/tslint/) is also installed
 at the global level. It is advised you setup TSLint in your editor before commiting code. 

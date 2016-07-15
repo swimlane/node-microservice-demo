@@ -4,7 +4,7 @@ import { EventSubscriber, On } from 'event-dispatch';
 export class PetSubscriber {
 
   @On('onPetCreate')
-  onPetCreate(socket, name: string) {
+  onPetCreate({ socket, name }) {
     // console.log("User " + user.name + " created!");
   }
 
