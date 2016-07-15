@@ -19,6 +19,7 @@
             },
             "externalConsole": false,
             "sourceMaps": true,
+            "smartStep": true,
             "outDir": "${workspaceRoot}/dist/"
         },
         {
@@ -29,9 +30,17 @@
             "address": "localhost",
             "restart": false,
             "sourceMaps": false,
+            "smartStep": true,
             "outDir": null,
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "smartStep": true,
+            "request": "attach",
+            "processId": "${command.PickProcess}"
         },
         {
             "name": "Attach Docker",
@@ -40,6 +49,7 @@
             "port": 5858,
             "address": "localhost",
             "restart": true,
+            "smartStep": true,
             "sourceMaps": true,
             "outDir": "${workspaceRoot}/dist/",
             "localRoot": "${workspaceRoot}",
@@ -52,6 +62,7 @@
             "program": "${workspaceRoot}/node_modules/.bin/mocha",
             "stopOnEntry": false,
             "args": ["./dist/tests/**/*.spec.js"],
+            "smartStep": true,
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "pretest",
             "runtimeExecutable": null,
