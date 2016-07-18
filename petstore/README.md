@@ -13,16 +13,7 @@ NodeJS micro-service for the petstore module.
 ## Developing
 
 ### Commands
-We use [npm scripts](https://docs.npmjs.com/misc/scripts) as our build tool.
-Below are the commands for the task runner.
-
-- `npm start`: Builds and starts the project with node-mon
-- `npm run clean`: Cleans the dist folder
-- `npm run dev`: Builds, watches and starts the project with node-mon
-- `npm run debug`: Builds, watches and starts the project with node-inspector
-- `npm run lint`: Runs ts-lint code style checks on the project
-- `npm run test`: Runs the tests using mocha
-- `npm run chk-updates`: Searches for updates to libraries used
+We use [npm scripts](https://docs.npmjs.com/misc/scripts) as our build tool. Refer to the package.json script's entry for list of scripts.
 
 ### TypeScript
 If you are installing a new third-party project, you will likely need to install the typings for that
