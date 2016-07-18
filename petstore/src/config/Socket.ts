@@ -2,12 +2,12 @@ import * as io from 'socket.io';
 import * as passport from 'passport';
 import * as glob from 'glob';
 import * as path from 'path';
-import { EventDispatcher } from 'event-dispatch';
+import { defaultMetadataRegistry } from 'event-dispatch/MetadataRegistry';
+import { logger } from '../common/logging';
 
+// include subscribers dynamically
 let files = glob.sync('./dist/subscribers/*.js');
-let subscribers = files.map(f => { 
-  return require(path.resolve(f)); 
-});
+files.map(f => { return require(path.resolve(f)); });
 
 export function setupSockets(app) {
   let server = io(app);
@@ -22,22 +22,21 @@ export function setupSockets(app) {
   });
 
   server.on('connection', (socket) => {
-    socket.emit('news', { hello: 'world' });
+    logger.info('Web Sockets initalized');
+    // const userId = socket.request.session.passport.user;
 
-    // Doesn't work...
-    // let eventDispatcher = new EventDispatcher();
-    // for(let event in eventDispatcher.subscribers) {
-    //  socket.on(event.name, event.callback);
-    // }
-    
-    // TEST!
-    // eventDispatcher.dispatch('onPetCreate', { socket, name: 'foo' });
-    
-    // TEST!
-    // var userId = socket.request.session.passport.user;
-    // socket.on('my other event', function (data) {
-    //  console.log(data);
-    // });
+    // bind applicable subscribers to the socket
+    defaultMetadataRegistry
+      .collectEventsHandlers
+      .forEach(eventHandler => {
+        const eventNamesForThisHandler = Object.keys(eventHandler);
+        eventNamesForThisHandler.forEach(eventName => {
+          const callback = eventHandler[eventName];
+          socket.on(eventName, (data) => {
+            callback(Object.assign({ socket }, data));
+          });
+        });
+      });
   });
 
   return io;
