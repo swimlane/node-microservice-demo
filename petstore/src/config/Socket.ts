@@ -24,13 +24,16 @@ export function setupSockets(app) {
   server.on('connection', (socket) => {
     socket.emit('news', { hello: 'world' });
 
+    // Doesn't work...
     // let eventDispatcher = new EventDispatcher();
-    // eventDispatcher.dispatch('onPetCreate', { socket, name: 'foo' });
-
-    // for(let event in subscribers) {
-    //  console.log('ev', event);
+    // for(let event in eventDispatcher.subscribers) {
+    //  socket.on(event.name, event.callback);
     // }
-
+    
+    // TEST!
+    // eventDispatcher.dispatch('onPetCreate', { socket, name: 'foo' });
+    
+    // TEST!
     // var userId = socket.request.session.passport.user;
     // socket.on('my other event', function (data) {
     //  console.log(data);
