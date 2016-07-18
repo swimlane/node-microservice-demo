@@ -3,7 +3,7 @@ ports:
     debug: 5858
 
 auth:
-    jwt_secret: 'UR4swimlane$'
+    jwt_secret: 'supersecret'
 
 spec:
     petstore: 'http://petstore.swagger.io/v2/swagger.json'
