@@ -5,7 +5,7 @@ export class PetSubscriber {
 
   @On('onPetCreate')
   onPetCreate({ socket, name }) {
-    // console.log("User " + user.name + " created!");
+    // console.log('name', socket, name);
   }
 
 }
