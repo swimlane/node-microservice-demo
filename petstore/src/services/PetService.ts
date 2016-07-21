@@ -2,6 +2,7 @@ import { Service, Inject } from 'typedi';
 import { PetModel } from '../models/PetModel';
 import { PetSwagger } from './PetSwagger';
 import { MongoService } from './MongoService';
+import * as Bar from './parser/bar';
 
 export class PetService extends MongoService {
 
@@ -15,6 +16,8 @@ export class PetService extends MongoService {
   }
 
   async get(id: number) {
+    let x = new Bar.Bar();
+    console.log(x.Greet);
     let client = await this.swagger.client;
     let pet = await client.pet.getPetById({ petId: id });
     return pet;

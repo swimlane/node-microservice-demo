@@ -22,7 +22,8 @@
     "outDir": "dist/",
     "baseUrl": "src/",
     "listFiles": false,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "allowJs": true
   },
   "include": [
     "src/**/*"
