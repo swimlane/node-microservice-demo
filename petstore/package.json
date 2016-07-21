@@ -73,7 +73,9 @@
     "swagger-client": "^2.1.15",
     "swagger-tools": "^0.10.1",
     "typedi": "^0.4.1",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "passport-jwt": "^2.1.0",
+    "glob": "^7.0.5"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.29",
@@ -94,10 +96,8 @@
     "@types/winston": "^2.2.25-alpha",
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.3.3",
-    "glob": "^7.0.5",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
-    "passport-jwt": "^2.1.0",
     "remap-istanbul": "^0.6.4",
     "source-map-support": "^0.4.1",
     "supertest": "^1.2.0",
