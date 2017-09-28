@@ -6,35 +6,28 @@
   "scripts": {
     "check": "npm-check --skip-unused",
     "preinstall": "npm i -g nodemon node-inspector rimraf npm-run-all npm-check",
-
     "start": "npm-run-all -s clean build start:simple",
-      "start:simple": "node .",
-      "start:dev": "npm-run-all -s clean build -p watch:*",
-      "start:debug": "npm-run-all -s clean build -p watch:* debug",
-
+    "start:simple": "node .",
+    "start:dev": "npm-run-all -s clean build -p watch:*",
+    "start:debug": "npm-run-all -s clean build -p watch:* debug",
     "clean": "npm-run-all -p clean:*",
-      "clean:dist": "rimraf dist",
-      "clean:cov": "rimraf coverage",
-
+    "clean:dist": "rimraf dist",
+    "clean:cov": "rimraf coverage",
     "debug": "node-debug",
-
     "build": "npm-run-all -s build:ts build:swagger",
-      "build:ts": "./node_modules/typescript/bin/tsc",
-      "build:swagger": "node ./dist/tasks/swagger.js",
-
+    "build:ts": "./node_modules/typescript/bin/tsc",
+    "build:swagger": "node ./dist/tasks/swagger.js",
     "watch:ts": "./node_modules/typescript/bin/tsc --watch",
     "watch:node": "nodemon --debug --delay 2.5",
-
     "lint": "./node_modules/tslint/bin/tslint ./src/{,**/}*.ts",
     "pretest": "npm-run-all -s clean build",
-
     "test": "npm-run-all -s test:cov test:cov:remap",
-      "test:api": "mocha dist/tests/api/*.spec.js -R spec --bail",
-      "test:unit": "mocha dist/tests/unit/*.spec.js -R spec --bail",
-      "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- dist/**/*.spec.js -R spec --bail",
-        "test:cov:remap": "npm-run-all test:cov:remap:*",
-        "test:cov:remap:html": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov-report -t html",
-        "test:cov:remap:loc": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov.info -t lcovonly"
+    "test:api": "mocha dist/tests/api/*.spec.js -R spec --bail",
+    "test:unit": "mocha dist/tests/unit/*.spec.js -R spec --bail",
+    "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- dist/**/*.spec.js -R spec --bail",
+    "test:cov:remap": "npm-run-all test:cov:remap:*",
+    "test:cov:remap:html": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov-report -t html",
+    "test:cov:remap:loc": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov.info -t lcovonly"
   },
   "repository": {
     "type": "git",
@@ -92,7 +85,7 @@
     "@types/passport-jwt": "^2.0.18",
     "@types/serve-static": "^1.7.27",
     "@types/socket.io": "^1.4.26",
-    "@types/supertest": "^1.1.25-alpha",
+    "@types/supertest": "^2.0.3",
     "@types/winston": "^2.2.25-alpha",
     "chai": "^3.5.0",
     "codeclimate-test-reporter": "^0.3.3",
@@ -100,7 +93,7 @@
     "mocha": "^2.5.3",
     "remap-istanbul": "^0.6.4",
     "source-map-support": "^0.4.1",
-    "supertest": "^1.2.0",
+    "supertest": "^3.0.0",
     "swagger-jsdoc": "^1.3.1",
     "ts-helpers": "^1.1.1",
     "tslint": "^3.12.0-dev.2",
