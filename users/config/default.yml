@@ -1,0 +1,15 @@
+ports:
+    http: 8080
+    debug: 5858
+
+auth:
+    jwt_secret: 'supersecret'
+
+spec:
+    petstore: 'http://users.swagger.io/v2/swagger.json'
+
+mongo:
+    url: 'mongodb://mongo:27017'
+
+# none/debug/info
+loglevel: info
