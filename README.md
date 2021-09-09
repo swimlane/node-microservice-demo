@@ -1,4 +1,7 @@
 # node-microservice-demo
+
+> ⚠️ **This project is not maintained any longer. Please feel free to fork it if you need to make changes to the library.**
+
 [![Code Climate](https://codeclimate.com/github/swimlane/node-microservice-demo/badges/gpa.svg)](https://codeclimate.com/github/swimlane/node-microservice-demo)
 [![Test Coverage](https://codeclimate.com/github/swimlane/node-microservice-demo/badges/coverage.svg)](https://codeclimate.com/github/swimlane/node-microservice-demo/coverage)
 [![Build Status](https://travis-ci.org/swimlane/node-microservice-demo.svg?branch=master)](https://travis-ci.org/swimlane/node-microservice-demo)
